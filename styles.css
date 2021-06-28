@@ -29,3 +29,27 @@
   background-color: red;
   color: white;
 }
+
+.poke-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.span-poke {
+  text-transform: uppercase;
+}
+
+.poke-prev {
+  padding: 15px;
+  background-color: red;
+  color: white;
+  border: none;
+}
+
+.poke-next {
+  padding: 15px;
+  background-color: red;
+  color: white;
+  border: none;
+}
