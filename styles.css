@@ -28,6 +28,13 @@
   border: none;
   background-color: red;
   color: white;
+  transition: 0.3s ease-in-outsss;
+}
+
+.poke-btn button:hover {
+  background-color: white;
+  color: black;
+  text-decoration-line: black 1px solid;
 }
 
 .poke-img {
@@ -45,6 +52,7 @@
   background-color: red;
   color: white;
   border: none;
+  text-transform: uppercase;
 }
 
 .poke-next {
@@ -52,4 +60,12 @@
   background-color: red;
   color: white;
   border: none;
+  text-transform: uppercase;
+}
+
+.poke-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
 }
