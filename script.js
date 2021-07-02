@@ -33,16 +33,37 @@ function getPokemonInfo(url) {
     .then((data) => {
       console.log(data);
       document.querySelector(".pokemon-info").innerHTML = `
-      <img class="poke-img" src="${data.sprites.other["official-artwork"].front_default}">
+      <img class="poke-img" src="${
+        data.sprites.other["official-artwork"].front_default
+      }">
       <div class="poke-info-cont">
       <h2>${data.id}. ${data.name}</h2>
       <div>
       <p>Types: <span class="span-poke">${data.types[0].type.name}</span></p>
-      <p>Abilities: ${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}</p>
+      <p>Abilities: ${data.abilities[0].ability.name}, ${
+        data.abilities[1].ability.name
+      }</p>
       <p>Height: ${data.height}</p>
       <p>Weight: ${data.weight}</p>
+      <p>Moves: ${GetMoves(data.moves)}</p>
       </div>
       </div>
       `;
     });
+}
+
+function GetMoves(moves) {
+  let index1 = Math.floor(Math.random() * moves.length);
+  let index2 = Math.floor(Math.random() * moves.length);
+
+  while (index1 == index2) {
+    index2 = Math.floor(Math.random() * moves.length);
+  }
+
+  let moveSet = `
+    <span>${moves[index1].move.name}</span>,
+    <span>${moves[index2].move.name}</span>
+  `;
+
+  return moveSet;
 }
