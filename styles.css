@@ -98,6 +98,15 @@ body {
   grid-template-rows: repeat(2, 1fr);
 }
 
+.pokemon-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+}
+
 @media screen and (max-width: 800px) {
   .pokemon-list-container {
     display: grid;
