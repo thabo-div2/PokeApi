@@ -55,14 +55,26 @@ function getPokemonInfo(url) {
 function GetMoves(moves) {
   let index1 = Math.floor(Math.random() * moves.length);
   let index2 = Math.floor(Math.random() * moves.length);
+  let index3 = Math.floor(Math.random() * moves.length);
+  let index4 = Math.floor(Math.random() * moves.length);
 
   while (index1 == index2) {
     index2 = Math.floor(Math.random() * moves.length);
   }
 
+  while (index2 == index3) {
+    index3 = Math.floor(Math.random() * moves.length);
+  }
+
+  while (index3 == index4) {
+    index4 = Math.floor(Math.random() * moves.length);
+  }
+
   let moveSet = `
     <span>${moves[index1].move.name}</span>,
-    <span>${moves[index2].move.name}</span>
+    <span>${moves[index2].move.name}</span>,
+    <span>${moves[index3].move.name}</span>,
+    <span>${moves[index4].move.name}</span>
   `;
 
   return moveSet;
