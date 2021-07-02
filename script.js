@@ -17,10 +17,10 @@ function getPokemonList(url) {
         `;
       });
       if (data.previous == null) {
-        container.innerHTML += `<br><br><button class="poke-next" onclick="getPokemonList('${data.next}')">Next</button>`;
+        container.innerHTML += `<br><br><div class="fix-poke"><button class="poke-next next-1" onclick="getPokemonList('${data.next}')">Next</button></div>`;
         document.getElementsByClassName(".poke-prev").disabled = true;
       } else {
-        container.innerHTML += `<br><br><button class="poke-prev" onclick="getPokemonList('${data.previous}')">Prev</button><button class="poke-next" onclick="getPokemonList('${data.next}')">Next</button>`;
+        container.innerHTML += `<br><br><button class="poke-prev prev-1" onclick="getPokemonList('${data.previous}')">Prev</button><button class="poke-next next-1" onclick="getPokemonList('${data.next}')">Next</button>`;
       }
     });
 }
@@ -33,25 +33,16 @@ function getPokemonInfo(url) {
     .then((data) => {
       console.log(data);
       document.querySelector(".pokemon-info").innerHTML = `
-        <img class="poke-img" src="${data.sprites.other["official-artwork"].front_default}">
-        <div class="poke-info-cont">
-            <h2>${data.id}. ${data.name}</h2>
-            <div>
-              <p>Types: <span class="span-poke">${data.types[0].type.name}</span></p>
-              <p>Abilities: ${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}</p>
-              <p>Height: ${data.height}</p>
-              <p>Weight: ${data.weight}</p>
-            </div>
-        </div>
+      <img class="poke-img" src="${data.sprites.other["official-artwork"].front_default}">
+      <div class="poke-info-cont">
+      <h2>${data.id}. ${data.name}</h2>
+      <div>
+      <p>Types: <span class="span-poke">${data.types[0].type.name}</span></p>
+      <p>Abilities: ${data.abilities[0].ability.name}, ${data.abilities[1].ability.name}</p>
+      <p>Height: ${data.height}</p>
+      <p>Weight: ${data.weight}</p>
+      </div>
+      </div>
       `;
-      if (data.types == 2) {
-        document.querySelector(".span-poke").innerHTML += `
-          ${data.types[0].type.name} ,${data.types[1].type.name}
-          `;
-      } else {
-        document.querySelector("span-poke").innerHTML += `
-          ${data.types[0].type.name}
-          `;
-      }
     });
 }
